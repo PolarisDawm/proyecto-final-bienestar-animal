@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto digital para adopción y concientización de mascotas</title>
+    
+    <style>
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            color: #333333; 
+            line-height: 1.6; 
+            margin: 0;
+            padding: 0;
+
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+
+            
+            background-color: #f4f7f6; 
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Cpath d='M30,20 C32,20 33,18 32,15 C31,12 29,11 27,13 C25,15 27,20 30,20 Z M18,28 C20,28 22,26 22,23 C22,20 19,18 17,20 C15,22 15,28 18,28 Z M42,28 C45,28 45,22 43,20 C41,18 38,20 38,23 C38,26 40,28 42,28 Z M30,24 C24,24 20,28 20,34 C20,41 25,46 30,46 C35,46 40,41 40,34 C40,28 36,24 30,24 Z' fill='%231e7e34' fill-opacity='0.04'/%3E%3C/svg%3E");
+            background-repeat: repeat;
+        }
+
+       
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            background: #ffffff; 
+            padding: 40px;
+            border-radius: 10px; 
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); 
+        }
+
+        
+        nav {
+            background-color: #1e7e34; 
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+       
+        nav a {
+            color: #ffffff; 
+            text-decoration: none; 
+            font-weight: 600;
+            margin: 0 12px;
+            padding: 6px 12px;
+            border-radius: 4px;
+            transition: background 0.3s ease; 
+        }
+
+        
+        nav a:hover {
+            background-color: #145523; 
+        }
+
+        
+        .section-block {
+            padding: 20px 25px;
+            margin-bottom: 25px;
+            border-left: 4px solid #cbd5e1; 
+            border-radius: 0 8px 8px 0;
+            background-color: #ffffff;
+            transition: all 0.4s ease; 
+        }
+
+        
+        .container:hover .section-block {
+            opacity: 0.65; 
+            transform: scale(0.99);
+        }
+
+       
+        .container .section-block:hover {
+            opacity: 1;
+            transform: translateY(-3px) scale(1.01); 
+            border-left-color: #1e7e34; 
+            background-color: #fafdfb; 
+            box-shadow: 0 8px 20px rgba(30, 126, 52, 0.08); 
+        }
+
+        
+        h1 {
+            text-align: center; 
+            color: #2c3e50; 
+            font-size: 32px; 
+            margin-bottom: 40px; 
+            font-weight: 700;
+        }
+
+        h3 {
+            color: #2c3e50; 
+            margin-top: 0; 
+            margin-bottom: 15px;
+            font-size: 18px;
+            letter-spacing: 0.5px;
+            transition: color 0.3s ease;
+        }
+
+        
+        .section-block:hover h3 {
+            color: #1e7e34;
+        }
+
+        
+        p {
+            font-size: 16px;
+            text-align: justify; 
+            margin-bottom: 0;
+        }
+
+        
+        ul {
+            background-color: #f8f9fa; 
+            padding: 20px 40px;
+            margin: 15px 0 0 0;
+            border-radius: 6px;
+            list-style-type: square; 
+            transition: background-color 0.3s ease;
+        }
+
+        .section-block:hover ul {
+            background-color: #e8f5e9; 
+        }
+
+        li {
+            margin-bottom: 10px;
+            font-size: 15px;
+            transition: transform 0.2s ease; 
+        }
+
+        li:last-child {
+            margin-bottom: 0;
+        }
+
+        
+        .section-block:hover li {
+            transform: translateX(4px);
+        }
+
+        
+        .image-container {
+            text-align: center; 
+            margin: 30px 0;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .image-container img {
+            max-width: 100%; 
+            height: auto; 
+            display: block;
+            transition: transform 0.5s ease; 
+        }
+
+        .image-container:hover img {
+            transform: scale(1.04); 
+        }
+    </style>
+    </head>
+<body>
+
+    <div class="container">
+
+        <nav>
+            <a href="index.html">Inicio</a>
+            <a href="adoptar.html">Mascotas en Adopción</a>
+            <a href="concientizacion.html">Concientización</a>
+            <a href="Temas-del-curso.html">Bienestar Animal</a>
+            <a href="https://www.udenar.edu.co/">Universidad de Nariño</a>
+            <a href="referencias.html">Contacto y Referencias</a>
+        </nav>
+
+        <h1>Plataforma Digital para Adopción y Concientización de Mascota</h1>
+
+        <div class="section-block">
+            <h3>A QUÉ COMUNIDAD VA DIRIGIDO</h3>
+            <p>Este proyecto está dirigido a personas interesadas en adoptar mascotas, comunidad en general, grupos locales (como WhatsApp, redes sociales).</p>
+        </div>
+        
+        <div class="section-block">
+            <h3>PROBLEMÁTICA ABORDADA</h3>
+            <p>Actualmente, many personas publican animales en adopción a través de grupos de WhatsApp o redes sociales, pero la información se pierde rápidamente, no hay seguimiento del animal, no se verifica la responsabilidad del adoptante, falta organización en los procesos de adopción, esto provoca que muchos animales no encuentren hogar o vuelvan a ser abandonados.</p>
+            
+            <div class="image-container">
+                <img src="Problematica.png" alt="Mascotas buscando hogar">
+            </div>
+        </div>
+
+        <div class="section-block">
+            <h3>CONCEPTOS A ENFATIZAR</h3>
+            <ul>
+                <li>Adopción responsable.</li>
+                <li>Bienestar animal.</li>
+                <li>Concientización social.</li>
+                <li>Tenencia responsable de mascotas.</li>
+                <li>Prevención del abandono.</li>
+                <li>Uso de tecnología de las comunicaciones para impacto social.</li>
+            </ul>
+        </div>
+
+        <div class="section-block">
+            <h3>MATERIAL QUE UTILIZARÁN</h3>
+            <ul>
+                <li>Computador.</li>
+                <li>Internet.</li>
+                <li>Herramientas de desarrollo web (HTML).</li>
+                <li>Redes sociales (WhatsApp, Facebook, etc.)</li>
+                <li>Imágenes y recursos gráficos de la web.</li>
+                <li>Plataforma web para almacenamiento de datos.</li>
+            </ul>
+        </div>
+
+        <div class="section-block">
+            <h3>DESCRIPCIÓN DEL PROYECTO</h3>
+            <p>Desde mi carrera de ingeniería electrónica, el proyecto consiste en el desarrollo de una página web de adopción de mascotas, donde se organizará la información de animales disponibles para adopción de manera clara y accesible.</p>
+            <br>
+            <p>La plataforma permitirá:</p>
+            <ul>
+                <li>Publicar fotos de animales en adopción.</li>
+                <li>Incluir información relevante (edad, estado de salud, ubicación).</li>
+                <li>Promover la adopción responsable mediante mensajes de concientización.</li>
+            </ul>
+            <br>
+            <p>Además, la página incluirá, imágenes alusivas al cuidado animal, frases de concientización, recomendaciones para adoptantes.</p>
+        </div>
+        
+        <div class="section-block">
+            <h3>FINALIDAD ALCANZADA</h3>
+            <ul>
+                <li>Reducir el abandono animal.</li>
+                <li>Generar conciencia en la comunidad.</li>
+                <li>Promover el uso de la tecnología de la comunicación para el bienestar animal.</li>
+            </ul>
+        </div>
+
+        <!-- PIE DE PÁGINA CON EL CONTADOR DE VISITAS -->
+        <hr style="border: 0; border-top: 1px solid #e2e8f0; margin-top: 40px;">
+        
+        <div style="text-align: center; margin: 20px 0; color: #7f8c8d; font-size: 14px; font-family: inherit;">
+            <p style="margin-bottom: 8px; font-weight: 600;">👥 Visitantes en nuestra plataforma:</p>
+            
+            <!-- AQUÍ ESTÁ TU CÓDIGO PEGADO -->
+            <div id="sfckkl3kayb4cbxbu4jmxj8jxcwe568gp4k" style="display: inline-block;"></div>
+            <script type="text/javascript" src="https://counter11.optistats.ovh/private/counter.js?c=kkl3kayb4cbxbu4jmxj8jxcwe568gp4k&down=async" async></script>
+            <noscript>
+                <a href="https://www.contadorvisitasgratis.com" title="contador de visitas web">
+                    <img src="https://counter11.optistats.ovh/private/contadorvisitasgratis.php?c=kkl3kayb4cbxbu4jmxj8jxcwe568gp4k" border="0" title="contador de visitas web" alt="contador de visitas web">
+                </a>
+            </noscript>
+            <!-- FIN DE TU CÓDIGO -->
+            
+        </div>
+
+    </div>
+
+</body>
+</html>

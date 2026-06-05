@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto y Referencias - Bienestar Animal</title>
+    <style>
+        /* Estilos base institucionales */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            color: #333333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+
+            /* --- FONDO CON PATRÓN DE HUELLAS VERDES SUTILES --- */
+            background-color: #f4f7f6; /* Color de fondo base */
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Cpath d='M30,20 C32,20 33,18 32,15 C31,12 29,11 27,13 C25,15 27,20 30,20 Z M18,28 C20,28 22,26 22,23 C22,20 19,18 17,20 C15,22 15,28 18,28 Z M42,28 C45,28 45,22 43,20 C41,18 38,20 38,23 C38,26 40,28 42,28 Z M30,24 C24,24 20,28 20,34 C20,41 25,46 30,46 C35,46 40,41 40,34 C40,28 36,24 30,24 Z' fill='%231e7e34' fill-opacity='0.04'/%3E%3C/svg%3E");
+            background-repeat: repeat;
+
+
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 30px auto;
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        nav {
+            background-color: #1e7e34;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 600;
+            margin: 0 12px;
+            padding: 6px 12px;
+            border-radius: 4px;
+            transition: background 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: #145523;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            font-size: 32px;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .subtitulo {
+            text-align: center;
+            color: #7f8c8d;
+            font-style: italic;
+            margin-bottom: 40px;
+        }
+
+        h2 {
+            color: #1e7e34;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 8px;
+            margin-top: 40px;
+        }
+
+        /* --- DOS COLUMNAS PARA CONTACTO E INFORMACIÓN --- */
+        .grid-contacto {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .grid-contacto {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Estilos del Formulario */
+        .form-grupo {
+            margin-bottom: 20px;
+        }
+
+        .form-grupo label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .form-grupo input, .form-grupo textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #cccccc;
+            border-radius: 6px;
+            box-sizing: border-box;
+            font-family: inherit;
+            font-size: 14px;
+        }
+
+        .form-grupo textarea {
+            resize: vertical;
+            height: 120px;
+        }
+
+        .btn-enviar {
+            background-color: #1e7e34;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.2s;
+            width: 100%;
+        }
+
+        .btn-enviar:hover {
+            background-color: #145523;
+        }
+
+        /* Detalles Informativos */
+        .info-autor {
+            background-color: #f8f9fa;
+            padding: 25px;
+            border-radius: 8px;
+            border-left: 5px solid #1e7e34;
+        }
+
+        .info-autor p {
+            margin: 10px 0;
+        }
+
+        /* --- ESTILOS DE REFERENCIAS BIBLIOGRÁFICAS --- */
+        .lista-referencias {
+            list-style: none;
+            padding: 0;
+        }
+
+        .lista-referencias li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .lista-referencias li::before {
+            content: "📄";
+            position: absolute;
+            left: 0;
+            top: 2px;
+        }
+
+        .referencia-enlace {
+            color: #1e7e34;
+            text-decoration: none;
+        }
+
+        .referencia-enlace:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <!-- MENÚ DE NAVEGACIÓN COMPATIBLE -->
+        <nav>
+            <a href="index.html">Inicio</a>
+            <a href="adoptar.html">Mascotas en Adopción</a>
+            <a href="concientizacion.html">Concientización</a>
+            <a href="Temas-del-curso.html">Bienestar Animal</a>
+            <a href="https://www.udenar.edu.co/">Universidad de Nariño</a>
+            <a href="contacto.html">Contacto</a>
+        </nav>
+
+        <h1>Contacto y Referencias</h1>
+        <p class="subtitulo">Información del proyecto, canales de comunicación y fuentes académicas.</p>
+
+        <div class="grid-contacto">
+            
+            <!-- COLUMNA 1: FORMULARIO DE CONTACTO REAL -->
+        <div>
+            <h2>Escríbenos</h2>
+            <!-- REEMPLAZA DESDE AQUÍ -->
+            <form action="https://formspree.io/f/ever.lotero@udenar.edu.co" method="POST">
+                <div class="form-grupo">
+                    <label for="nombre">Nombre Completo:</label>
+                    <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre...">
+                </div>
+                
+                <div class="form-grupo">
+                    <label for="correo">Correo Electrónico:</label>
+                    <input type="email" id="correo" name="correo" required placeholder="tu@correo.com">
+                </div>
+                
+                <div class="form-grupo">
+                    <label for="mensaje">Mensaje o Sugerencia:</label>
+                    <textarea id="mensaje" name="mensaje" required placeholder="Escribe tu mensaje aquí..."></textarea>
+                </div>
+                
+                <button type="submit" class="btn-enviar">Enviar Mensaje</button>
+            </form>
+            <!-- HASTA AQUÍ -->
+        </div>
+
+            <!-- COLUMNA 2: DETALLES DEL PROYECTO -->
+            <div>
+                <h2>Información Institucional</h2>
+                <div class="info-autor">
+                    <p><strong>Proyecto:</strong> Portal de Concientización sobre Bienestar Animal</p>
+                    <p><strong>Institución:</strong> Universidad de Nariño</p>
+                    <p><strong>Ubicación:</strong> Pasto, Nariño, Colombia</p>
+                    <p><strong>Objetivo:</strong> Promover el respeto por los seres sintientes, la divulgación de las leyes de protección animal vigentes y las buenas prácticas de convivencia en la comunidad.</p>
+                </div>
+            </div>
+
+        </div>
+
+        <h2>Referencias y Fuentes Consultadas</h2>
+        <p>A continuación se listan las leyes, normativas, bases conceptuales y fuentes de recursos visuales utilizadas para el desarrollo de los contenidos de este sitio web:</p>
+        
+        <ul class="lista-referencias">
+            <li>
+                <strong>Congreso de la República de Colombia.</strong> (2016). <em>Ley 1774 de 2016: Por la cual se modifican el Código Civil, la Ley 84 de 1989, el Código Penal, el Código de Procedimiento Penal y se dictan otras disposiciones</em>. Bogotá D.C. 
+                <a class="referencia-enlace" href="https://www.funcionpublica.gov.co" target="_blank">[Enlace oficial]</a>
+            </li>
+            <li>
+                <strong>Congreso de la República de Colombia.</strong> (2025). <em>Ley 2455 de 2025 (Ley Ángel): Modificaciones al régimen sancionatorio penal en materia de maltrato animal</em>. Bogotá D.C.
+            </li>
+            <li>
+                <strong>Farm Animal Welfare Council (FAWC).</strong> (1992). <em>The Five Freedoms (Las Cinco Libertades del Bienestar Animal)</em>. Definición universal del estándar ético para animales bajo cuidado humano.
+            </li>
+            <li>
+                <strong>Alcaldía de Pasto & Secretaría de Gestión Ambiental.</strong> (2024). <em>Guías de manejo y políticas de bienestar animal en el Vivero Municipal y zonas urbanas</em>. San Juan de Pasto.
+            </li>
+            <hr style="border: 0; border-top: 1px dashed #e2e8f0; margin: 20px 0;">
+            <li>
+                <strong>Apellániz, E.</strong> (s.f.). <em>Frases de respeto hacia los animales y reflexiones inspiradoras</em>. Recursos de concientización y citas célebres.
+                <a class="referencia-enlace" href="https://erikaapellaniz.com/frases-de-respeto-hacia-los-animales/" target="_blank">[Enlace a la fuente]</a>
+            </li>
+            <li>
+                <strong>Pixabay.</strong> (s.f.). <em>Banco de imágenes, ilustraciones y vectores libres de derechos de autor</em>. Utilizado para material visual del sitio.
+                <a class="referencia-enlace" href="https://pixabay.com" target="_blank">[Sitio web]</a>
+            </li>
+            <li>
+                <strong>Pexels.</strong> (s.f.). <em>Plataforma de fotografía y video de stock gratuito para creadores</em>. Utilizado para el archivo multimedia y banners del proyecto.
+                <a class="referencia-enlace" href="https://www.pexels.com" target="_blank">[Sitio web]</a>
+            </li>
+        </ul>
+
+    </div>
+    
+</body>
+</html>

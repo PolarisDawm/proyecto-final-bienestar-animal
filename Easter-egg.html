@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mascota al Rescate - Arcade</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #1a1c20, #2c3e50);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden;
+            color: #fff;
+        }
+
+        .interfaz-juego {
+            width: 100%;
+            max-width: 800px;
+            background-color: #23272a;
+            padding: 20px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            box-sizing: border-box;
+        }
+
+        .cabecera-arcade {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 10px 20px;
+            border-radius: 8px;
+            border: 1px solid #3a3f44;
+        }
+
+        .titulo {
+            font-size: 22px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #f1c40f;
+            margin: 0;
+        }
+
+        .marcador-vidas {
+            font-size: 20px;
+            letter-spacing: 2px;
+        }
+
+        #puntuacion {
+            font-size: 20px;
+            font-weight: bold;
+            font-family: monospace;
+            color: #2ecc71;
+        }
+
+        
+        #pantalla-arcade {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(to bottom, #dff9fb, #ffffff);
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.15);
+            cursor: pointer;
+        }
+
+        
+        .nubes {
+            position: absolute;
+            top: 20px;
+            width: 200%;
+            height: 50px;
+            background: transparent;
+            font-size: 30px;
+            opacity: 0.3;
+            animation: moverNubes 20s linear infinite;
+            white-space: nowrap;
+            pointer-events: none;
+        }
+
+       
+        .suelo-asfalto {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 50px;
+            background-color: #7f8c8d;
+            border-top: 6px solid #2c3e50;
+            box-sizing: border-box;
+        }
+
+        
+        .linea-carretera {
+            position: absolute;
+            top: 20px;
+            width: 200%;
+            height: 4px;
+            background: repeating-linear-gradient(90deg, #fff, #fff 30px, transparent 30px, transparent 60px);
+            animation: moverSuelo 1s linear infinite;
+        }
+
+        
+        #perrito {
+            width: 50px;
+            height: 50px;
+            font-size: 45px;
+            position: absolute;
+            bottom: 40px; 
+            left: 50px;
+            line-height: 50px;
+            z-index: 10;
+            transition: opacity 0.1s ease;
+        }
+
+        .saltando {
+            animation: saltoFisico 0.65s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        #obstaculo {
+            width: 40px;
+            height: 40px;
+            font-size: 35px;
+            position: absolute;
+            bottom: 42px;
+            right: -50px;
+            line-height: 40px;
+            z-index: 10;
+        }
+
+        .corriendo {
+            animation: moverObstaculo 1.6s linear infinite;
+        }
+
+        
+        .overlay-mensaje {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 30;
+            border-radius: 12px;
+        }
+
+        .overlay-mensaje h2 {
+            font-size: 28px;
+            color: #e74c3c;
+            margin: 0 0 15px 0;
+            text-transform: uppercase;
+        }
+
+        .overlay-mensaje p {
+            margin: 0 0 20px 0;
+            font-size: 16px;
+            color: #bdc3c7;
+        }
+
+        .btn-arcade {
+            background-color: #f1c40f;
+            color: #1a1c20;
+            border: none;
+            padding: 12px 28px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+            text-transform: uppercase;
+            box-shadow: 0 4px 0 #c0392b;
+            transition: transform 0.1s, background 0.2s;
+        }
+
+        .btn-arcade:hover {
+            background-color: #f39c12;
+        }
+
+        .btn-arcade:active {
+            transform: translateY(3px);
+            box-shadow: 0 1px 0 #c0392b;
+        }
+
+        .controles-ayuda {
+            margin-top: 15px;
+            text-align: center;
+            font-size: 14px;
+            color: #7f8c8d;
+        }
+
+        
+        @keyframes saltoFisico {
+            0% { bottom: 40px; }
+            45% { bottom: 160px; }
+            55% { bottom: 160px; }
+            100% { bottom: 40px; }
+        }
+
+        @keyframes moverObstaculo {
+            0% { left: 100%; }
+            100% { left: -50px; }
+        }
+
+        @keyframes moverSuelo {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        @keyframes moverNubes {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="interfaz-juego">
+        <div class="cabecera-arcade">
+            <h1 class="titulo">🐾 Mascota al Rescate</h1>
+            <div class="marcador-vidas" id="vidas">❤️❤️❤️</div>
+            <div id="puntuacion">SCORE: 0</div>
+        </div>
+
+        <div id="pantalla-arcade">
+            
+            <div class="nubes">☁️ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ☁️ &nbsp; &nbsp; &nbsp; &nbsp; ☁️</div>
+            <div class="suelo-asfalto">
+                <div class="linea-carretera"></div>
+            </div>
+
+            
+            <div id="perrito">🐶</div>
+            <div id="obstaculo" class="corriendo">📦</div>
+
+            
+            <div class="overlay-mensaje" id="pantalla-gameover">
+                <h2>Game Over</h2>
+                <p id="record-final">Lograste esquivar muchos peligros.</p>
+                <button class="btn-arcade" id="btn-reiniciar">Jugar de Nuevo</button>
+            </div>
+        </div>
+
+        <div class="controles-ayuda">
+            Presiona la <strong>Barra Espaciadora</strong> o haz <strong>Clic en la pantalla gris</strong> para saltar.
+        </div>
+    </div>
+
+    <script>
+        const perrito = document.getElementById("perrito");
+        const obstaculo = document.getElementById("obstaculo");
+        const pantalla = document.getElementById("pantalla-arcade");
+        const txtScore = document.getElementById("puntuacion");
+        const contenedorVidas = document.getElementById("vidas");
+        const overlayGameOver = document.getElementById("pantalla-gameover");
+        const btnReiniciar = document.getElementById("btn-reiniciar");
+        const lineasCarretera = document.querySelector(".linea-carretera");
+
+        
+        let score = 0;
+        let vidas = 3;
+        let juegoActivo = true;
+        let invulnerable = false;
+        let velocidadActual = 1.6; 
+        
+        const peligroLista = ["📦", "🔥", "🪤"]; 
+
+        
+        function cambiarObstaculoAleatorio() {
+            const indice = Math.floor(Math.random() * peligroLista.length);
+            obstaculo.innerText = peligroLista[indice];
+        }
+
+        
+        function ejecutarSalto() {
+            if (!juegoActivo) return;
+            if (!perrito.classList.contains("saltando")) {
+                perrito.classList.add("saltando");
+                setTimeout(() => {
+                    perrito.classList.remove("saltando");
+                }, 650);
+            }
+        }
+
+        
+        document.addEventListener("keydown", (e) => {
+            if (e.code === "Space") {
+                e.preventDefault();
+                ejecutarSalto();
+            }
+        });
+        pantalla.addEventListener("click", ejecutarSalto);
+
+        
+        const loopJuego = setInterval(() => {
+            if (!juegoActivo) return;
+
+            
+            const perroBottom = parseInt(window.getComputedStyle(perrito).getPropertyValue("bottom"));
+            const obstaculoLeft = parseInt(window.getComputedStyle(obstaculo).getPropertyValue("left"));
+
+           
+            score++;
+            txtScore.innerText = `SCORE: ${score}`;
+            
+            if (score % 300 === 0 && velocidadActual > 0.8) {
+                velocidadActual -= 0.15;
+                obstaculo.style.animationDuration = `${velocidadActual}s`;
+                lineasCarretera.style.animationDuration = `${velocidadActual * 0.6}s`;
+            }
+
+            
+            if (obstaculoLeft < -30) {
+                cambiarObstaculoAleatorio();
+            }
+
+            
+            if (obstaculoLeft > 50 && obstaculoLeft < 95 && perroBottom <= 85) {
+                if (!invulnerable) {
+                    procesarDaño();
+                }
+            }
+        }, 20);
+
+        
+        function procesarDaño() {
+            vidas--;
+            invulnerable = true;
+            
+            
+            contenedorVidas.innerText = "❤️".repeat(vidas) + "🖤".repeat(3 - vidas);
+
+            if (vidas <= 0) {
+                finalizarJuego();
+            } else {
+                
+                let parpadeo = setInterval(() => { perrito.style.opacity = perrito.style.opacity === "0" ? "1" : "0"; }, 100);
+                setTimeout(() => {
+                    clearInterval(parpadeo);
+                    perrito.style.opacity = "1";
+                    invulnerable = false;
+                }, 1000);
+            }
+        }
+
+       
+        function finalizarJuego() {
+            juegoActivo = false;
+            obstaculo.classList.remove("corriendo");
+            lineasCarretera.style.animationPlayState = "paused";
+            document.querySelector(".nubes").style.animationPlayState = "paused";
+            document.getElementById("record-final").innerText = `Conseguiste una puntuación final de ${score} puntos.`;
+            overlayGameOver.style.display = "flex";
+        }
+
+        
+        btnReiniciar.addEventListener("click", (e) => {
+            e.stopPropagation();
+            score = 0;
+            vidas = 3;
+            velocidadActual = 1.6;
+            invulnerable = false;
+            juegoActivo = true;
+
+            txtScore.innerText = "SCORE: 0";
+            contenedorVidas.innerText = "❤️❤️❤️";
+            overlayGameOver.style.display = "none";
+
+            obstaculo.style.animationDuration = "1.6s";
+            lineasCarretera.style.animationDuration = "1s";
+            lineasCarretera.style.animationPlayState = "running";
+            document.querySelector(".nubes").style.animationPlayState = "running";
+            
+            obstaculo.classList.add("corriendo");
+            cambiarObstaculoAleatorio();
+        });
+    </script>
+</body>
+</html>

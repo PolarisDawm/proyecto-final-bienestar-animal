@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienestar Animal - Proyecto Digital</title>
+    
+    <style>
+       
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            color: #333333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+
+            
+            background-color: #f4f7f6; 
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Cpath d='M30,20 C32,20 33,18 32,15 C31,12 29,11 27,13 C25,15 27,20 30,20 Z M18,28 C20,28 22,26 22,23 C22,20 19,18 17,20 C15,22 15,28 18,28 Z M42,28 C45,28 45,22 43,20 C41,18 38,20 38,23 C38,26 40,28 42,28 Z M30,24 C24,24 20,28 20,34 C20,41 25,46 30,46 C35,46 40,41 40,34 C40,28 36,24 30,24 Z' fill='%231e7e34' fill-opacity='0.04'/%3E%3C/svg%3E");
+            background-repeat: repeat;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 30px auto;
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        nav {
+            background-color: #1e7e34;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 600;
+            margin: 0 12px;
+            padding: 6px 12px;
+            border-radius: 4px;
+            transition: background 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: #145523;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            font-size: 32px;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .Instruccion {
+            text-align: center;
+            color: #7f8c8d;
+            font-style: italic;
+            margin-bottom: 40px;
+        }
+
+        
+        .seccion-esferas {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 25px;
+            margin-top: 30px;
+            width: 100%;
+        }
+
+        
+        .esfera-tema {
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 25px;
+            text-align: center;
+            cursor: pointer;
+            color: white;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+            overflow: hidden;
+            box-sizing: border-box;
+            
+            
+            transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1), 
+                        border-radius 0.5s cubic-bezier(0.4, 0, 0.2, 1), 
+                        height 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+                        box-shadow 0.3s ease;
+        }
+
+        
+        .esfera-tema h3 {
+            margin: 0;
+            font-size: 15px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+
+        
+        .signo-interrogante {
+            font-size: 70px;
+            font-weight: bold;
+            margin: 0;
+            line-height: 1;
+            transition: opacity 0.3s ease;
+        }
+
+       
+        .contenido-oculto {
+            opacity: 0;
+            visibility: hidden;
+            display: none;
+            width: 100%;
+            transition: opacity 0.4s ease-in-out;
+        }
+
+        
+        .esfera-tema:hover {
+            width: 100%; 
+            height: auto;
+            min-height: 220px;
+            border-radius: 20px; 
+            padding: 35px 40px;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            cursor: default;
+        }
+
+        
+        .esfera-tema:hover h3 {
+            font-size: 22px;
+            text-align: left;
+            margin-bottom: 15px;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+            padding-bottom: 8px;
+        }
+
+        
+        .esfera-tema:hover .signo-interrogante {
+            display: none;
+        }
+
+       
+        .esfera-tema:hover .contenido-oculto {
+            display: block;
+            opacity: 1;
+            visibility: visible;
+        }
+
+        
+        .flex-contenido {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+            text-align: justify;
+            width: 100%;
+        }
+
+        
+        .flex-contenido-centrado {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+
+        .texto-descripcion {
+            flex: 1;
+            font-size: 15px;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        .texto-descripcion p {
+            margin: 0 0 10px 0;
+        }
+
+        
+        .imagen-revelada {
+            width: 160px;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            background-color: white;
+            flex-shrink: 0;
+        }
+
+        
+        .imagen-revelada-grande {
+            max-width: 500px;
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+            background-color: white;
+            display: block;
+        }
+
+        
+        .color-1 { background: linear-gradient(135deg, #2980b9, #3498db); }
+        .color-2 { background: linear-gradient(135deg, #8e44ad, #9b59b6); }
+        .color-3 { background: linear-gradient(135deg, #27ae60, #2ecc71); }
+        .color-4 { background: linear-gradient(135deg, #c0392b, #e74c3c); }
+        .color-5 { background: linear-gradient(135deg, #f39c12, #f1c40f); }
+        .color-6 { background: linear-gradient(135deg, #d35400, #e67e22); }
+        .color-7 { background: linear-gradient(135deg, #16a085, #1abc9c); }
+        .color-8 { background: linear-gradient(135deg, #2c3e50, #34495e); }
+        .color-9 { background: linear-gradient(135deg, #7f8c8d, #95a5a6); } 
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <nav>
+            <a href="index.html">Inicio</a>
+            <a href="adoptar.html">Mascotas en Adopción</a>
+            <a href="concientizacion.html">Concientización</a>
+            <a href="Temas-del-curso.html">Bienestar Animal</a>
+            <a href="https://www.udenar.edu.co/">Universidad de Nariño</a>
+            <a href="referencias.html">Contacto y Referencias</a>
+        </nav>
+
+        <h1>Contenidos Académicos de Bienestar Animal</h1>
+        <p class="Instruccion">Pasa el puntero del mouse sobre cualquiera de las esferas de colores centradas para expandirla simétricamente.</p>
+
+        <div class="seccion-esferas">
+
+            <div class="esfera-tema color-1">
+                <h3>¿Qué es Bienestar Animal?</h3>
+                <div class="contenido-oculto">
+                    <div class="flex-contenido">
+                        <div class="texto-descripcion">
+                            <p>El bienestar animal es el estado físico y mental de un animal en relación con las condiciones en las que vive y muere. Asegura que el animal esté sano, cómodo, bien alimentado, seguro y libre de sufrimiento, permitiéndole expresar sus comportamientos naturales.</p>
+                            <p>El concept se evalúa internacionalmente a través de las <strong>Cinco Libertades</strong>:</p>
+                            <p>• <strong>Libre de hambre, sed y desnutrición:</strong> Acceso a agua fresca y una dieta que mantenga su plena salud y vigor.<br>
+                               • <strong>Libre de incomodidad:</strong> Disponer de un entorno adecuado que incluya refugio y un área de descanso cómoda.<br>
+                               • <strong>Libre de dolor, lesiones y enfermedades:</strong> Prevención o diagnóstico y tratamiento rápido.<br>
+                               • <strong>Libre de expresar sus comportamientos naturales:</strong> Proveer el espacio suficiente, instalaciones adecuadas y la compañía de individuos de su propia especie.<br>
+                               • <strong>Libre de miedo y angustia:</strong> Garantizar condiciones y prácticas que eviten el sufrimiento mental.</p>
+                        </div>
+                        <img class="imagen-revelada" src="https://cdn.pixabay.com/photo/2019/08/19/07/45/corgi-4415649_1280.jpg" alt="Bienestar Animal">
+                    </div>
+                </div>
+            </div>
+
+            <div class="esfera-tema color-2">
+                <h3>Antropomorfismo y Estereotipias</h3>
+                <div class="contenido-oculto">
+                    <div class="flex-contenido">
+                        <div class="texto-descripcion">
+                            <p><strong>1. Antropomorfismo:</strong><br>
+                            Es la tendencia humana a atribuir características, emociones, intenciones o comportamientos humanos a entidades que no lo son (como animales, plantas, deidades, fuerzas naturales o incluso objetos inanimados).</p>
+                            <p><strong>¿Por qué ocurre?</strong><br>
+                            Es una herramienta psicológica natural que nos ayuda a entender y conectar mejor con el mundo que nos rodea, haciéndolo más familiar y menos intimidante.</p>
+                        </div>
+                        <img class="imagen-revelada" src="https://cdn.pixabay.com/photo/2023/11/22/16/17/dog-8405867_1280.jpg" alt="Comportamiento Animal">
+                    </div>
+                </div>
+            </div>
+
+            <div class="esfera-tema color-3">
+                <h3>Libertades de los animales</h3>
+                <div class="contenido-oculto">
+                    <div class="flex-contenido">
+                        <div class="texto-descripcion">
+                            <p>Las libertades de los animales, conocidas internacionalmente como las Cinco Libertades, son el estándar ético y científico universal que define el bienestar animal. Establecen que todo animal bajo cuidado humano debe estar libre de necesidades básicas, dolor y estrés.</p>
+                            <p>El modelo de las cinco libertades consta de:Libre de hambre, sed y desnutrición: Acceso a agua fresca y una dieta adecuada para mantener su salud y vigor.Libre de temor y angustia: Prevención de condiciones y sufrimientos mentales que eviten el estrés o el miedo crónico.Libre de molestias físicas y térmicas: Disponer de un entorno adecuado con refugio y un área de descanso cómoda.Libre de dolor, lesiones y enfermedad: Prevención o diagnóstico rápido y tratamiento veterinario adecuado.Libre de expresar un comportamiento normal: Disponer del espacio suficiente y la compañía de su propia especie para poder actuar según su naturaleza.</p>
+                        </div>
+                        <img class="imagen-revelada" src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=300" alt="Cinco Libertades">
+                    </div>
+                </div>
+            </div>
+
+            <div class="esfera-tema color-4">
+                <h3>Leyes de protección animal</h3>
+                <div class="contenido-oculto">
+                    <div class="flex-contenido">
+                        <div class="texto-descripcion">
+                            <p><strong>Ley 1774 de 2016:</strong> Reconoce a los animales como seres sintientes. El maltrato y tratos crueles son castigados con cárcel y multas.</p>
+                            <p><strong>Ley 2455 de 2025 (Ley Ángel):</strong> Endurece las sanciones por maltrato animal. Castiga la muerte dolosa con cárcel no excarcelable superior a 4 años.</p>
+                            <p><strong>Código de Policía (Ley 1801 de 2016) y Ley 2054 de 2020:</strong> Regulan el uso de correa, bozal y multas por no recoger excrementos.</p>
+                            <p><strong>Ley 2374 de 2024:</strong> Establece el sistema nacional gratuito de esterilización obligatoria.</p>
+                        </div>
+                        <img class="imagen-revelada" src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=300" alt="Leyes de Protección">
+                    </div>
+                </div>
+            </div>
+
+            <div class="esfera-tema color-5">
+                <h3>Controversia animalista y ambientalista</h3>
+                <div class="contenido-oculto">
+                    <div class="flex-contenido">
+                        <div class="texto-descripcion">
+                            <p><strong>La transición energética vs. el impacto local (Enfoque Ambientalista):</strong></p>
+                            <p>• <strong>La controversia:</strong> La instalación de macroparques de energía eólica o solar en zonas rurales o protegidas.</p>
+                            <p>• <strong>Postura a favor:</strong> Es una medida urgente y necesaria a nivel global para mitigar el cambio climático, reducir las emisiones de carbono y sustituir los combustibles fósiles.</p>
+                            <p>• <strong>Postura en contra:</strong> Comunidades locales y ciertos sectores ecologistas argumentan que estos megaproyectos destruyen ecosistemas locales, afectan las rutas migratorias de las aves y alteran el paisaje natural.</p>
+                        </div>
+                        <img class="imagen-revelada" src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=300" alt="Ambiente">
+                    </div>
+                </div>
+            </div>
+
+            <div class="esfera-tema color-6">
+                <h3>Calentamiento Global</h3>
+                <div class="contenido-oculto">
+                    <div class="flex-contenido">
+                        <div class="texto-descripcion">
+                            <p>En mi comunidad se evidencian varias alteraciones en el ambiente:</p>
+                            <p>• Contaminación por basura en calles y espacios públicos.<br>
+                               • Contaminación del aire, malos olores y alcantarillas obstruidas.<br>
+                               • Reducción de zonas verdes y tala de árboles.<br>
+                               • Contaminación de fuentes de agua.<br>
+                               • Contaminación auditiva por maquinaria pesada y buses.<br>
+                               • Cambios climáticos extremos en ciertas épocas del año, provocando sequías y altas temperaturas.</p>
+                        </div>
+                        <img class="imagen-revelada" src="https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?w=300" alt="Cambio Climático">
+                    </div>
+                </div>
+            </div>
+
+            <div class="esfera-tema color-7">
+                <h3>Animales en extinción en Nariño</h3>
+                <div class="contenido-oculto">
+                    <div class="flex-contenido">
+                        <div class="texto-descripcion">
+                            <p><strong>Oso Andino (Tremarctos ornatus):</strong> También conocido como oso de anteojos. En Nariño (como en Buesaco o el PNN Complejo Volcánico Doña Juana-Cascabel), sufre por la fragmentación de su hábitat.</p>
+                            <p><strong>Cóndor Andino (Vultur gryphus):</strong> En grave peligro, sufre por la alteración de sus zonas de anidación y el envenenamiento indirecto.</p>
+                            <p><strong>Danta de Montaña (Tapirus pinchaque):</strong> Habita los páramos y bosques altoandinos, amenazada por la cacería furtiva y la pérdida de sus áreas de alimentación.</p>
+                        </div>
+                        <img class="imagen-revelada" src="https://inforegion.pe/wp-content/uploads/2026/02/Entre-la-montana-y-el-bosque-amenazas-crecientes-para-el-oso-andino-y-desafios-para-su-conservacion-2.webp" alt="Fauna Silvestre">
+                    </div>
+                </div>
+            </div>
+
+            <div class="esfera-tema color-8">
+                <h3>Estrés y Fatiga por Compasión</h3>
+                <div class="contenido-oculto">
+                    <div class="flex-contenido">
+                        <div class="texto-descripcion">
+                            <p><strong>Síntomas físicos:</strong> Pérdida de apetito, indigestión frecuente, cansancio, insomnio, dolores de cabeza, migraña, calambres y lágrimas frecuentes.</p>
+                            <p><strong>Síntomas mentales:</strong> Dificultad para relajarse, obsesión con temores, sentirse rechazado, incapacidad para tomar decisiones, falta de interés en la gente y sentimientos de culpa o fracaso.</p>
+                        </div>
+                        <img class="imagen-revelada" src="https://cdn.pixabay.com/photo/2017/08/07/18/57/dog-2606759_1280.jpg" alt="Cuidado Animal">
+                    </div>
+                </div>
+            </div>
+
+            <div class="esfera-tema color-9">
+                <p class="signo-interrogante">?</p>
+                <div class="contenido-oculto" style="width: 100%;">
+                    <div class="flex-contenido-centrado">
+                        <img class="imagen-revelada-grande" src="https://i0.wp.com/erikaapellaniz.com/wp-content/uploads/2020/07/crueldad-del-hombre.jpg?resize=690%2C690&ssl=1" alt="Crueldad del hombre" width="690" height="690">
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin: 40px auto;">
+            <p style="font-style: italic; color: #7f8c8d;">???</p>
+            <a href="Easter-egg.html" target="_blank" style="display: inline-block; background-color: #e67e22; color: white; padding: 12px 24px; text-decoration: none; font-weight: bold; border-radius: 25px; box-shadow: 0 4px 10px rgba(0,0,0,0.15); transition: background 0.3s;">
+                🎮 🥚
+            </a>
+            </div>
+
+        </div> </div>
+
+</body>
+</html>
