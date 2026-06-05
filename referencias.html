@@ -193,7 +193,7 @@
             <a href="concientizacion.html">Concientización</a>
             <a href="Temas-del-curso.html">Bienestar Animal</a>
             <a href="https://www.udenar.edu.co/">Universidad de Nariño</a>
-            <a href="contacto.html">Contacto</a>
+            <a href="referencias.html">Contacto</a>
         </nav>
 
         <h1>Contacto y Referencias</h1>
@@ -204,29 +204,34 @@
             <!-- COLUMNA 1: FORMULARIO DE CONTACTO REAL -->
         <div>
             <h2>Escríbenos</h2>
-            <!-- REEMPLAZA DESDE AQUÍ -->
-            <form action="https://formspree.io/f/ever.lotero@udenar.edu.co" method="POST">
+            
+            <form action="https://formsubmit.co/ever.lotero@udenar.edu.co" method="POST">
+                
+                <input type="hidden" name="_next" value="https://polarisdawm.github.io/proyecto-final-bienestar-animal/referencias.html">
+                <input type="hidden" name="_subject" value="Nueva Sugerencia/Mensaje - Plataforma Bienestar Animal">
+                
+                <input type="hidden" name="_captcha" value="false">
+
                 <div class="form-grupo">
                     <label for="nombre">Nombre Completo:</label>
-                    <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre...">
+                    <input type="text" id="nombre" name="Nombre" required placeholder="Tu nombre...">
                 </div>
                 
                 <div class="form-grupo">
                     <label for="correo">Correo Electrónico:</label>
-                    <input type="email" id="correo" name="correo" required placeholder="tu@correo.com">
+                    <input type="email" id="correo" name="Email" required placeholder="tu@correo.com">
                 </div>
                 
                 <div class="form-grupo">
                     <label for="mensaje">Mensaje o Sugerencia:</label>
-                    <textarea id="mensaje" name="mensaje" required placeholder="Escribe tu mensaje aquí..."></textarea>
+                    <textarea id="mensaje" name="Mensaje" required placeholder="Escribe tu mensaje aquí..."></textarea>
                 </div>
                 
                 <button type="submit" class="btn-enviar">Enviar Mensaje</button>
             </form>
-            <!-- HASTA AQUÍ -->
         </div>
 
-            <!-- COLUMNA 2: DETALLES DEL PROYECTO -->
+            
             <div>
                 <h2>Información Institucional</h2>
                 <div class="info-autor">
